@@ -1,0 +1,26 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Action": [
+				"s3:GetObject",
+				"s3:GetObjectVersion"
+			],
+			"Resource": "arn:aws:s3:::lab4-maksymchuk-2026/incoming/*"
+		},
+		{
+			"Effect": "Allow",
+			"Action": [
+				"dynamodb:PutItem",
+				"dynamodb:UpdateItem"
+			],
+			"Resource": "arn:aws:dynamodb:eu-north-1:038471709494:table/lab4-items"
+		},
+		{
+			"Effect": "Allow",
+			"Action": "sqs:SendMessage",
+			"Resource": "arn:aws:sqs:eu-north-1:038471709494:lab4-dlq"
+		}
+	]
+}
